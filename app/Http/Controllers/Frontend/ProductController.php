@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Frontend;
 use App\Product;
 use App\Category;
 use App\Image;
+use App\ViewProduct;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Filters\ProductFilters;
+use Auth;
+use DB;
 
 class ProductController extends Controller
 {
@@ -27,8 +30,11 @@ class ProductController extends Controller
     {
         $products = Product::latest()->filter($filters)->paginate(25);
         $categories = Category::all();
+        $viewed = ViewProduct::with('product')->groupBy('product_id')
+            ->select('product_id', DB::raw('count(product_id) as total'))
+            ->get();
 
-        return view('frontend.product.index', compact('products', 'categories'));
+        return view('frontend.product.index', compact('products', 'categories', 'viewed'));
     }
 
     /**
@@ -92,6 +98,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $user_id = Auth::user() ? Auth::user()->id : 0;
+        ViewProduct::view($product->id, $user_id);
         return view('frontend.product.show', compact('product'));
     }
 

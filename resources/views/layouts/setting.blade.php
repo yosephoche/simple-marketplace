@@ -25,13 +25,13 @@
             <i class="fas fa-address-book"></i> {{ __('Address') }}
           </a>
 
-          <a href="#" class="list-group-item list-group-item-action">
+          {{-- <a href="#" class="list-group-item list-group-item-action">
             <i class="fas fa-shipping-fast"></i> {{ __('Shipping') }}
           </a>
 
           <a href="#" class="list-group-item list-group-item-action rounded-0">
             <i class="far fa-credit-card"></i> {{ __('Payment') }}
-          </a>
+          </a> --}}
       </div> <!-- //.list-group -->
 
     </div> <!-- //.col-md-3 -->

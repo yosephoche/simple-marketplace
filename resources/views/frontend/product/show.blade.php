@@ -7,20 +7,22 @@
         <div class="col-md-8">
             <div class="card mb-3">
                 @include('component.productcarousel', ['images' => $product->images])
-            </div>    
+            </div>
         </div>
 
         <div class="col-md-4">
             <h2>{{ $product->name }}</h2>
             <p>
-                <div class="font-weight-bold">{{ __('Seller') }} :</div> 
+                <div class="font-weight-bold">{{ __('Seller') }} :</div>
                 <small class="text-muted">{{ $product->vendor() }}</small>
+                <div class="font-weight-bold">{{ __('Alamat') }} :</div>
+                <small class="text-muted">{{ $product->vendor_addresses() }}</small>
                 <div class="font-weight-bold mt-4">{{ __('Price') }} :</div>
-                <h3 class="mt-2">{{ $localization_setting->currency }} {{ $product->price }}</h3>
+                <h3 class="mt-2">@currency($product->price)</h3>
             </p>
-            
-            <a href="{{ route('cart.create', $product->slug) }}" class="btn btn-lg btn-success btn-block btn-flat mt-5">{{ __('Buy Now') }}</a>
-            <a href="{{ route('cart.create', $product->slug) }}" class="btn btn-lg btn-primary btn-flat btn-block">{{ __('Add to Cart') }}</a>
+
+            {{-- <a href="{{ route('cart.create', $product->slug) }}" class="btn btn-lg btn-success btn-block btn-flat mt-5">{{ __('Buy Now') }}</a> --}}
+            <a href="{{ route('cart.create', $product->vendor_phone()) }}" class="btn btn-lg btn-primary btn-flat btn-block">{{ __($product->vendor_phone()) }}</a>
         </div>
     </div>
     <div class="row">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesTable extends Migration
+class AddTableViewProduct extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('view_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('url');
             $table->integer('product_id');
+            $table->integer('view_by');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('view_products');
     }
 }

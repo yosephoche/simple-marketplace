@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Category;
@@ -36,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
 
             $localization_setting = LocalizationSetting::first();
             App::setLocale($localization_setting->language);
+        });
+
+        Blade::directive('currency', function ($expression) {
+            return "Rp. <?php echo number_format($expression, 0, ',', '.'); ?>";
         });
     }
 

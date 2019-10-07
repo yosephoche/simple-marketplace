@@ -56,6 +56,21 @@ class Product extends Model
         return $url;
     }
 
+    public function vendor_phone() {
+        $shop_phone = count($this->user->addresses) == 0 ? '': $this->user->addresses;
+        $phone = $shop_phone != '' ? $shop_phone->phone : 'Tidak ada Nomor Handphone';
+
+        return $phone;
+    }
+
+    public function vendor_addresses()
+    {
+        $shop_address = count($this->user->addresses) == 0 ? '' : $this->user->addresses;
+        $phone = $shop_address != '' ? $shop_address->address_name : 'Tidak ada alamat';
+
+        return $phone;
+    }
+
     public function scopeFilter($query, $filters) {
         return $filters->apply($query);
     }

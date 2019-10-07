@@ -24,6 +24,7 @@
 <div class="container wrapper">
     <!--Products-->
     <div class="row">
+
         @foreach($products as $product)
 
             <div class="col-md-4 mb-5">
@@ -43,7 +44,7 @@
                 <div class="circle-icon text-success">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                
+
                 <h5 class="font-bold">Guaranted 100% Secure</h5>
             </div>
 

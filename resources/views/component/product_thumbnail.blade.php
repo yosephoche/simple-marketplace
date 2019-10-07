@@ -6,12 +6,16 @@
         <a href="{{ route('product.show', $product->slug) }}" class="text-muted">{{ str_limit($product->name, 40, '...') }}</a>
       </p>
       <div class="d-flex justify-content-between align-items-center">
-        <span class="text-muted"><h3>{{ $localization_setting->currency }} {{ $product->price }} </h3></span>
-        <a type="button" href="{{ route('cart.create', $product->slug) }}" class="btn btn-sm btn-outline-secondary">{{ __('Add to Cart') }}</a>
+        <span class="text-muted"><h3>@currency($product->price) </h3></span>
+        {{-- <a type="button" href="{{ route('cart.create', $product->slug) }}" class="btn btn-sm btn-outline-secondary">{{ __('Lihat') }}</a> --}}
       </div>
     </div>
 
     <div class="card-footer bg-white">
         <a href="{{ $product->vendor_url() }}" class="text-muted">{{ $product->vendor() }}</a>
+        <p>
+            <span>Makassar, Sulawesi Selatan</span>
+            <span style="float:right">Hari ini</span>
+        </p>
     </div>
 </div>
