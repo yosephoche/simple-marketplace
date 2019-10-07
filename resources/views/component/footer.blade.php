@@ -11,15 +11,15 @@
                         <a class="social-link mt-1" href="#">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        
+
                         <a class="social-link mt-1" href="#">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        
+
                         <a class="social-link mt-1" href="#">
                             <i class="fab fa-google-plus-g"></i>
                         </a>
-                        
+
                         <a class="social-link mt-1" href="#">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
@@ -41,10 +41,10 @@
             <address class="text-muted">
                 <ul class="list-unstyled">
                   <li>
-                  City Hall<br>
-                      212  Street<br>
-                      Lawoma<br>
-                      735<br>
+                  Jl. Inspeksi Pam,<br>
+                      Lr. 1 No. 25 A<br>
+                      Manggala<br>
+                      90233<br>
                   </li>
                   <li>
                       Phone: 0834534309

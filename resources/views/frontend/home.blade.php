@@ -15,9 +15,8 @@
 
     <hr class="my-4">
 
-    <a href="{{ route('product.index') }}" type="button" class="btn btn-primary btn-lg waves-effect btn-flat">{{ __('Browse Product') }}</a>
-    <a href="{{ route('product.create') }}" type="button" class="btn btn-success btn-lg btn-flat waves-effect">{{ __('Start Selling') }}</a>
-
+    <a href="{{ route('product.index') }}" type="button" class="btn btn-primary btn-lg btn-flat" style="color:black">{{ __('Cari Barang') }}</a>
+    <a href="{{ route('product.create') }}" type="button" class="btn btn-success btn-lg btn-flat waves-effect" style="color:black">{{ __('Jual Barang') }}</a>
 </div>
 <!--Jumbotron-->
 

@@ -47,23 +47,6 @@
 <div class="container">
     <div class="row" style="margin-top:30px; ">
         <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
-        {{-- <div class="col-md-12">
-            <h2 class="flot"><i class="fa fa-pie-chart" aria-hidden="true"></i></h2>
-                <h1>Grafik Product</h1>
-                <small class="ash">Data product yang paling sering dilihat</small><br>
-            <dl>
-            <dt>
-                Total Performance
-            </dt>
-                <dd class="percentage percentage-11"><span class="text">Item 1: 11.33%</span></dd>
-                <dd class="percentage percentage-49"><span class="text">Item 2: 49.77%</span></dd>
-                <dd class="percentage percentage-16"><span class="text">Item 3: 16.09%</span></dd>
-                <dd class="percentage percentage-5"><span class="text">Item 4: 5.41%</span></dd>
-                <dd class="percentage percentage-2"><span class="text">Item 5: 1.62%</span></dd>
-                <dd class="percentage percentage-2"><span class="text">Item 6: 2%</span></dd>
-            </dl>
-        </div> --}}
     </div>
 </div>
 
