@@ -32,6 +32,8 @@ class ProductController extends Controller
         $categories = Category::all();
         $viewed = ViewProduct::with('product')->groupBy('product_id')
             ->select('product_id', DB::raw('count(product_id) as total'))
+            ->orderBy('total', 'desc')
+            ->limit(5)
             ->get();
 
         return view('frontend.product.index', compact('products', 'categories', 'viewed'));
@@ -98,8 +100,10 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $user_id = Auth::user() ? Auth::user()->id : 0;
-        ViewProduct::view($product->id, $user_id);
+        if (Auth::user()) {
+            // $user_id = Auth::user() ? Auth::user()->id : 0;
+            ViewProduct::view($product->id, Auth::user()->id);
+        }
         return view('frontend.product.show', compact('product'));
     }
 

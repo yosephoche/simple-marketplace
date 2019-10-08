@@ -46,7 +46,14 @@
 {{-- Grafik product --}}
 <div class="container">
     <div class="row" style="margin-top:30px; ">
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <div class="col-md-6">
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+        </div>
+        <div class="col-md-6">
+            <img src="https://picsum.photos/540/300" alt="">
+
+        </div>
     </div>
 </div>
 
