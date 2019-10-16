@@ -33,7 +33,7 @@ class ProductController extends Controller
         $viewed = ViewProduct::with('product')->groupBy('product_id')
             ->select('product_id', DB::raw('count(product_id) as total'))
             ->orderBy('total', 'desc')
-            ->limit(5)
+            ->limit(10)
             ->get();
 
         return view('frontend.product.index', compact('products', 'categories', 'viewed'));

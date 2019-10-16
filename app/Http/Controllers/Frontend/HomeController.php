@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::simplePaginate(6);
+        $products = Product::orderBy('created_at', 'desc')->simplePaginate(6);
         return view('frontend.home', compact('products'));
     }
 }

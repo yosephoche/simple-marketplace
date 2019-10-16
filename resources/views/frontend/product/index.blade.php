@@ -85,7 +85,7 @@
         var options = {
             animationEnabled: true,
             title: {
-                text: "Pencarian Populer"
+                text: "Barang Paling Banyak Dilihat"
             },
             axisY:{
                 title: "Jumlah Pencarian",
@@ -105,6 +105,8 @@
         $("#chartContainer").CanvasJSChart(options);
     }
 </script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+{{-- <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script> --}}
+{{-- <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script> --}}
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-canvas.min.js') }}"></script>
 @endsection

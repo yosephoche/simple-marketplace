@@ -25,7 +25,7 @@ class AddForeignKeyToProducts extends Migration
 
             $table->double('price');
 
-            $table->integer('shop_id')->unsigned();
+            $table->integer('shop_id')->unsigned()->nullable();
             $table->foreign('shop_id')
                 ->references('id')->on('shops')
                 ->onDelete('cascade');
