@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class AddForeignKeyToProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -17,10 +17,24 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->integer('user_id');
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
             $table->double('price');
-            $table->integer('shop_id')->nullable();
-            $table->integer('category_id');
+
+            $table->integer('shop_id')->unsigned();
+            $table->foreign('shop_id')
+                ->references('id')->on('shops')
+                ->onDelete('cascade');
+
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
+                ->onDelete('cascade');
+
             $table->string('image_url')->nullable();
             $table->string('slug')->unique();
             $table->timestamps();

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderItemTable extends Migration
+class AddForeignKeyToViewProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateOrderItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_items', function (Blueprint $table) {
+        Schema::create('view_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order_id');
-            $table->integer('product_id');
-            $table->integer('quantity');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')
+                ->references('id')->on('products')
+                ->onDelete('cascade');
+            $table->integer('view_by');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +32,6 @@ class CreateOrderItemTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_items');
+        Schema::dropIfExists('view_products');
     }
 }

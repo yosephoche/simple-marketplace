@@ -17,7 +17,10 @@ class CreateShopsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->string('user_id')->unique();
+
+            $table->integer('user_id')->unique()->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->string('logo')->nullable();
             $table->timestamps();
         });

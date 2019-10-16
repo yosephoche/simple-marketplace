@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesTable extends Migration
+class AddForeignKeyToImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,10 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->text('url');
-            $table->integer('product_id');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')
+                ->references('id')->on('products')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
