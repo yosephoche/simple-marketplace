@@ -11,8 +11,11 @@
 			<a class="nav-link active" href="{{ route('order.sales') }}">Transaction</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="{{ route('order.sales') }}">Sales
+            <a class="nav-link" href="{{ route('order.sales') }}">Sales
+                @if ($salescount > 0)
 				<span class="badge badge-danger badge-pill">{{ $salescount }}</span>
+
+                @endif
 			</a>
 		</li>
 	</ul>

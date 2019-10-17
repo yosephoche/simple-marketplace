@@ -8,8 +8,11 @@
 
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
-			<a class="nav-link" href="{{ route('order.index') }}">{{ __('Transaction') }}
+            <a class="nav-link" href="{{ route('order.index') }}">{{ __('Transaction') }}
+                @if ($transactioncount > 0)
 				<span class="badge badge-danger badge-pill">{{ $transactioncount }}</span>
+
+                @endif
 			</a>
 		</li>
 		<li class="nav-item">

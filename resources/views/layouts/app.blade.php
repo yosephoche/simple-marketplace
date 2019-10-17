@@ -58,12 +58,26 @@
                     <ul class="navbar-nav ml-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('order.index') }}"><i class="fas fa-exchange-alt"></i> <span class="badge badge-danger badge-pill">{{ $ordercount }}</span></a>      
+                            <a class="nav-link" href="{{ route('order.index') }}"><i class="fas fa-exchange-alt"></i>
+                                @if ($ordercount > 0)
+                                <span class="badge badge-danger badge-pill">
+                                    {{ $ordercount }}
+                                </span>
+
+                                @endif
+                            </a>
                         </li>
                         @endauth
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i> <span class="badge badge-danger badge-pill">{{ $cartcount }}</span></a>      
+                            <a class="nav-link" href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i>
+                                @if ($cartcount > 0)
+                                <span class="badge badge-danger badge-pill">
+                                    {{ $cartcount }}
+                                </span>
+
+                                @endif
+                            </a>
                         </li>
 
                         <!-- Authentication Links -->
