@@ -7,6 +7,7 @@ use App\Product;
 use App\Address;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class CartController extends Controller
 {
@@ -30,6 +31,10 @@ class CartController extends Controller
     public function create(Product $product)
     {
         try {
+            if (!Auth::user()) {
+                return redirect()->route('login');
+            }
+
             Cart::add(
                 $product->id,
                 $product->name,

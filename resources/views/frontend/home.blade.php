@@ -26,7 +26,7 @@
 
         @foreach($products as $product)
 
-            <div class="col-md-4 mb-5">
+            <div class="col-md-3 mb-5">
                 @include('component.product_thumbnail')
             </div>
 

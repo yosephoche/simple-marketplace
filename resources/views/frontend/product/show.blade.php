@@ -21,7 +21,7 @@
                 <h3 class="mt-2">@currency($product->price)</h3>
             </p>
 
-            {{-- <a href="{{ route('cart.create', $product->slug) }}" class="btn btn-lg btn-success btn-block btn-flat mt-5">{{ __('Buy Now') }}</a> --}}
+            <a href="{{ route('cart.create', $product->slug) }}" class="btn btn-lg btn-success btn-block btn-flat mt-5">{{ __('Buy Now') }}</a>
             <a href="{{ route('cart.create', $product->vendor_phone()) }}" class="btn btn-lg btn-primary btn-flat btn-block">{{ __($product->vendor_phone()) }}</a>
         </div>
     </div>

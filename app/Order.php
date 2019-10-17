@@ -63,15 +63,18 @@ class Order extends Model
     public function createOrder($request)
     {
         $seller_id = null;
-
         foreach ($request->order_items as $item) {
             $user_id = Product::getUserId($item['product_id']);
-
+            $address = $request->billing_address_id;
+            if ($address == '') {
+                $address = Address::where(['user_id' => auth()->id(), 'is_main_address' => true])->first();
+            }
+            // dd($address);
             if($user_id != $seller_id)
             {
-                $order = Order::create([    
+                $order = Order::create([
                     'customer_id'        => auth()->id(),
-                    'billing_address_id' => $request->billing_address_id,
+                    'billing_address_id' => $address,
                 ]);
             }
 

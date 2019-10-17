@@ -28,7 +28,10 @@ class ProductController extends Controller
      */
     public function index(ProductFilters $filters)
     {
-        $products = Product::latest()->filter($filters)->paginate(25);
+        $products = Product::where('user_id', '!=', Auth::user()->id)->latest()->filter($filters)->paginate(25);
+        if (Auth::user()->id) {
+            $products = Product::where('user_id', '!=', Auth::user()->id)->latest()->filter($filters)->paginate(25);
+        }
         $categories = Category::all();
         $viewed = ViewProduct::with('product')->groupBy('product_id')
             ->select('product_id', DB::raw('count(product_id) as total'))

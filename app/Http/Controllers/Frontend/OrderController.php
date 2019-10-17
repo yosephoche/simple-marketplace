@@ -43,7 +43,10 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $this->order->createOrder($request);
-
+        $address = Address::where(['user_id' => auth()->id(), 'is_main_address' => true])->first();
+        if(!$address) {
+            $this->address->createAddress($request);
+        }
         Cart::destroy();
 
         return redirect()->route('order.index');
